@@ -18,18 +18,8 @@ function App() {
 
   const [mathBirthStr, setMathBirthStr] = useState("");
 
-  // const [day, setDay] = useState(0);
-  // const [month, setMonth] = useState(0);
-
   const calCulateMathBirth = (_date) => {
     let date = _date;
-
-    // const day = date.getDate();
-    // const month = date.getMonth() + 1;
-
-    // setDay(day);
-    // setMonth(month);
-
     const today = new Date();
 
     let mathBirth;
@@ -55,25 +45,29 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => {
-      
-            setDisplayValue("inline");
-            setSelectedDate(date);
-            calCulateMathBirth(date);
-          }}
-          placeholderText="Select your date of birthhhh"
-          dateFormat="MM/dd"
-          minDate={new Date(`${new Date().getFullYear()}-01-01`)}
-          maxDate={new Date(`${new Date().getFullYear()}-12-31`)}
-          isClearable
-          // showMonthDropdown
-          // dateFormatCalendar=" "
-        />
+      <h1 className="header">Math Birthdate</h1>
+
+      <div className="container">
+        <div>
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => {
+              setDisplayValue("inline");
+              setSelectedDate(date);
+              calCulateMathBirth(date);
+            }}
+            placeholderText="Select your date of birth"
+            dateFormat="MM/dd"
+            minDate={new Date(`${new Date().getFullYear()}-01-01`)}
+            maxDate={new Date(`${new Date().getFullYear()}-12-31`)}
+            isClearable
+          />
+        </div>
+        <div className="math-B-day" style={{ display: displayValue }}>
+          <h2>Your math birthday is on: </h2>
+          {mathBirthStr}
+        </div>
       </div>
-      <div style={{ display: displayValue }}>{mathBirthStr}</div>
     </div>
   );
 }
