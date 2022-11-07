@@ -1,2 +1,2 @@
 
-Math birthday
+Math birthday challenge
