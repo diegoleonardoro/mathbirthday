@@ -59,15 +59,12 @@ function App() {
         <DatePicker
           selected={selectedDate}
           onChange={(date) => {
-            // const day = date.getDate();
-            // const month = date.getMonth();
-
+      
             setDisplayValue("inline");
             setSelectedDate(date);
-
             calCulateMathBirth(date);
           }}
-          placeholderText="Select your date of birth"
+          placeholderText="Select your date of birthhhh"
           dateFormat="MM/dd"
           minDate={new Date(`${new Date().getFullYear()}-01-01`)}
           maxDate={new Date(`${new Date().getFullYear()}-12-31`)}
